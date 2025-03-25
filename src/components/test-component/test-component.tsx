@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, JSX, Prop, h } from '@stencil/core';
 import { format } from '../../utils/utils';
 
 @Component({
@@ -26,7 +26,7 @@ export class MctTestComponent {
     return format(this.first, this.middle, this.last);
   }
 
-  render() {
+  render(): JSX.Element {
     return <div>Hello, World! I'm <b>{this.getText()}</b></div>;
   }
 }
