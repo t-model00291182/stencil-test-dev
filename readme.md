@@ -21,6 +21,9 @@ This setup includes:
 - **TypeScript support**
 - **Bootstrap 5 theme:** "Darky"
 
+![Screencap](https://github.com/t-model00291182/stencil-test-dev/blob/main/src/assets/screencap.png)
+
+
 ## Getting Started
 
 Clone the repository:
