@@ -9,15 +9,8 @@
         // Prettier is included in eslint. So upon saving (source.fixAll.eslint) Prettier is run at last to apply formatting.
         "editor.formatOnSave": false
     },
-    "scss.validate": true,
     "stylelint.validate": [
         "css",
         "scss"
     ],
-    "gitPrefix.pattern": ".*(PHGEBLWDRK-\\d+).*",
-    "gitPrefix.replacement": "$1 - ",
-    "sonarlint.connectedMode.project": {
-        "connectionId": "https-sonarqube-int-politie-",
-        "projectKey": "PHGEBLWDRK_pwc-blauwdruk"
-    },
 }

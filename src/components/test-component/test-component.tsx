@@ -1,4 +1,5 @@
-import { Component, JSX, Prop, h } from '@stencil/core';
+import type { JSX } from '@stencil/core';
+import { Component, Prop, h } from '@stencil/core';
 import { format } from '../../utils/utils';
 
 @Component({
@@ -7,26 +8,31 @@ import { format } from '../../utils/utils';
   shadow: true,
 })
 export class MctTestComponent {
+  //
   /**
    * The first name
    */
-  @Prop() first: string;
+  @Prop() first?: string;
 
   /**
    * The middle name
    */
-  @Prop() middle: string;
+  @Prop() middle?: string;
 
   /**
    * The last name
    */
-  @Prop() last: string;
+  @Prop() last?: string;
 
   private getText(): string {
     return format(this.first, this.middle, this.last);
   }
 
   render(): JSX.Element {
-    return <div>Hello, World! I'm <b>{this.getText()}</b></div>;
+    return (
+      <div>
+        Hello, World! I'm <b>{this.getText()}</b>
+      </div>
+    );
   }
 }

@@ -1,0 +1,11 @@
+.vscode
+.jest-cache
+coverage
+dist
+loader
+node_modules
+component-library
+www
+jest.config.js
+jest.setup.js
+src/components.d.ts

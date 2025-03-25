@@ -14,7 +14,14 @@ module.exports = {
     transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
     transform: {
         '^.+\\.(ts|tsx|jsx|css|mjs)$': '@stencil/core/testing/jest-preprocessor.js',
+        '^.+\\.tsx?$': [
+            'ts-jest',
+            // required due to custom location of tsconfig.json configuration file
+            // https://kulshekhar.github.io/ts-jest/docs/getting-started/options/tsconfig
+            {tsconfig: './config/tsconfig.json'},
+          ],
     },
+
     coveragePathIgnorePatterns: [ ],
     moduleNameMapper: {
         ...pathsToModuleNameMapper(paths, { prefix: '<rootDir>' }),

@@ -6,22 +6,30 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface MctInput {
+    }
     interface MctTestComponent {
         /**
           * The first name
          */
-        "first": string;
+        "first"?: string;
         /**
           * The last name
          */
-        "last": string;
+        "last"?: string;
         /**
           * The middle name
          */
-        "middle": string;
+        "middle"?: string;
     }
 }
 declare global {
+    interface HTMLMctInputElement extends Components.MctInput, HTMLStencilElement {
+    }
+    var HTMLMctInputElement: {
+        prototype: HTMLMctInputElement;
+        new (): HTMLMctInputElement;
+    };
     interface HTMLMctTestComponentElement extends Components.MctTestComponent, HTMLStencilElement {
     }
     var HTMLMctTestComponentElement: {
@@ -29,10 +37,13 @@ declare global {
         new (): HTMLMctTestComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "mct-input": HTMLMctInputElement;
         "mct-test-component": HTMLMctTestComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface MctInput {
+    }
     interface MctTestComponent {
         /**
           * The first name
@@ -48,6 +59,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "mct-input": MctInput;
         "mct-test-component": MctTestComponent;
     }
 }
@@ -55,6 +67,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "mct-input": LocalJSX.MctInput & JSXBase.HTMLAttributes<HTMLMctInputElement>;
             "mct-test-component": LocalJSX.MctTestComponent & JSXBase.HTMLAttributes<HTMLMctTestComponentElement>;
         }
     }

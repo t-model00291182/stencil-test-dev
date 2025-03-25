@@ -1,4 +1,3 @@
-
 // Mock DocumentFragment
 (global as any).DocumentFragment = document?.defaultView?.DocumentFragment;
 

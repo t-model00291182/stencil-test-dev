@@ -1,0 +1,99 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true,
+        "commonjs": true
+    },
+    "extends": [
+        "eslint:recommended", //
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@stencil-community/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "project": [
+            "./stencil.tsconfig.json" //
+        ]
+    },
+    "plugins": [
+        "@typescript-eslint", //
+        "import",
+        "unused-imports",
+        "file-progress",
+        "no-only-tests"
+    ],
+    "settings": {
+        "progress": {
+            "hide": false,
+            "successMessage": "✅ EsLint done..."
+        }
+    },
+    "ignorePatterns": ["temp.js", "*.spec.ts"],
+    "rules": {
+        "no-debugger": "warn",
+        // Make sure all components start with the prefix "mct"
+        "@stencil-community/required-prefix": ["warn", ["mct"]],
+        // Prefer the use of vdom listeners
+        "@stencil-community/prefer-vdom-listener": "warn",
+        // Error when there are unused imports
+        "unused-imports/no-unused-imports": "error",
+        // Only use parens when there are two or more variables (?) in a arrow function.
+        "arrow-parens": ["error", "as-needed"],
+        // Use double quotes in JSX attributes
+        "jsx-quotes": ["error", "prefer-double"],
+        // Let Prettier force the semi, if we turn this on here, it will conflict in certain cases and will produce incorrect code upon autofixing.
+        "semi": "off",
+        "eqeqeq": ["warn", "always", { "null": "ignore" }],
+        // See https://palantir.github.io/tslint/rules/no-switch-case-fall-through/
+        "no-switch-case-fall-through": 0,
+        // Adds spacing between objects. const obj = {hello: 'world'} will be changed to const obj = { hello: 'world' }
+        "object-curly-spacing": ["error", "always"],
+        // see https://typescript-eslint.io/rules/consistent-type-imports/
+        // When import types, make sure we use `import type ...` instead of the default `import`, this has some performance improvements
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@stencil-community/ban-default-true": "off",
+        "@stencil-community/reserved-member-names": "off",
+        // Prevent from committing (.only) tests to CI, which may prevent the entire test suite from running.
+        "no-only-tests/no-only-tests": "error",
+        // Import order should be alphabetically sorted.
+
+       
+        "no-console": [
+            "error",
+            {
+                "allow": ["warn", "error", "info"]
+            }
+        ],
+        // Do not allow unused vars, except when we prefix the variable with a `_`
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+
+                "argsIgnorePattern": "^_",
+                "caughtErrorsIgnorePattern": "^_",
+                "destructuredArrayIgnorePattern": "^_",
+                "varsIgnorePattern": "^_",
+                "ignoreRestSiblings": true
+            }
+        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@stencil-community/strict-boolean-conditions": "off",
+        "react/jsx-no-bind": "off",
+        "@stencil-community/strict-mutable": "off",
+        "no-unreachable": "error",
+        // *** tsDoc config ... ***
+        "lines-around-comment": [
+            "warn",
+            {
+                "beforeBlockComment": true
+            }
+        ],
+        "file-progress/activate": 1
+    }
+}
