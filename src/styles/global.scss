@@ -2,3 +2,13 @@
 @use './darkly/bootstrap.css';
 @use './darkly/prism-okaidia.css';
 @use './darkly/custom.min.css';
+
+pre {
+    font-size: 12px;
+    background: #2c4866;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: var(--pwc-nachtblauw-40);
+    text-shadow: 1px 1px 1px black, 0 0 0 white;
+    box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.4);
+}

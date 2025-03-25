@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -23,18 +22,38 @@
           <h1>Input component</h1>
           <p class="lead"></p>
         </div>
-   
+
       </div>
     </div>
 
-    <div class="card text-white bg-dark mb-3">
+    <form class="card mb-3 text-end" action="#" method="post" enctype="multipart/form-data">
       <div class="card-body">
-
-        <mct-test-component first="Stencil" middle="'Don't call me a framework'" last="JS"></mct-test-component> 
+        <mct-input name="test" value="foo bar" />
       </div>
-    </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+      </div>
+    </form>
 
-  </div>
+    <pre id="form-data"></pre>
+
+    <script>
+      window.addEventListener('load', function () {
+          const preEl = document.querySelector('pre#form-data');
+          const formEl = document.querySelector('form');
+          const submitBtnEl = document.querySelector('button[type=submit]');
+
+          formEl.addEventListener('submit', e => {
+              e.preventDefault();
+              const formData = {};
+              new FormData(formEl)
+                  .forEach((value, name) => (formData[name] = value));
+
+              preEl.innerHTML = JSON.stringify(formData, null, 4);
+          });
+      });
+  </script>
+
 </body>
 
 </html>

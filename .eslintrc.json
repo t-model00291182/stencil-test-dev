@@ -33,7 +33,7 @@
             "successMessage": "✅ EsLint done..."
         }
     },
-    "ignorePatterns": ["temp.js", "*.spec.ts"],
+    "ignorePatterns": ["temp.js"],
     "rules": {
         "no-debugger": "warn",
         // Make sure all components start with the prefix "mct"
@@ -60,9 +60,7 @@
         "@stencil-community/reserved-member-names": "off",
         // Prevent from committing (.only) tests to CI, which may prevent the entire test suite from running.
         "no-only-tests/no-only-tests": "error",
-        // Import order should be alphabetically sorted.
-
-       
+        "@stencil-community/required-jsdoc": "off",    
         "no-console": [
             "error",
             {

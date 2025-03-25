@@ -9,3 +9,4 @@ www
 jest.config.js
 jest.setup.js
 src/components.d.ts
+stencil.config.ts

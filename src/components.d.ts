@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MctInput {
+        "name"?: string;
+        "value"?: string;
     }
     interface MctTestComponent {
         /**
@@ -43,6 +45,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface MctInput {
+        "name"?: string;
+        "value"?: string;
     }
     interface MctTestComponent {
         /**
